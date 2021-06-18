@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DB-Auto</title>
+	 <link rel="stylesheet" href="/css/index_style.css" type="text/css">
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+     {{#each jsscripts}}
+     <script src="/js/{{this}}"></script>
+     {{/each}}
+  </head>
+   <body>
+	   <img src ="/images/dbauto.jpg" alt="DB Auto Pic" width="100%">
+		<div class="navbar">
+			<a href="/index">Home</a>
+			<a href="/customers">Customers</a>
+			<a href="/orders">Orders</a>
+			<a href="/cars">Cars</a>
+			<a href="/features">Features</a>
+			<a href="/tires">Tires</a>
+			<a href="/cars-features">Car-Features</a>
+		</div>
+
+
+	   {{{body}}}
+	
+	</body>
+</html>
