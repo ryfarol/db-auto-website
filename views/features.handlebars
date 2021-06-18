@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <main>
+  <h1>Features</h1>
+  <div class="input">
+	<form id="add_features" action="/features" method="post">
+		<label for="feature">Feature:</label>
+		<input type="text" id="feature" name="feature_name"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+  </div>
+  <table>
+    <tr>
+      <th>Feature ID</th>
+      <th>Feature Name</th>
+    </tr>
+	{{#each features}}
+    <tr>
+      <td>{{feat_id}}</td>
+      <td>{{feat_name}}</td>
+      <td><button onclick="deleteFeatures({{feat_id}})">Delete</button></td>
+    </tr>
+	{{/each}}
+  </main>
+</html>

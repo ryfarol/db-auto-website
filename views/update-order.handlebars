@@ -1,0 +1,23 @@
+<html>
+        <h1>Update Order Number: {{order.id}}</h1>
+        <form id="update-order">
+            Choose a customer: 
+            	<select name="customer" id="customer-selector">
+					{{#each customers}}
+					<option value="{{customer_id}}">{{customer_last_name}}</option>
+					{{/each}}
+				</select><br>
+            Choose a Car: 
+            	<select name="car" id="car-selector">
+					{{#each cars}}
+					<option value="{{car_id}}">{{car_id}}</option>
+					{{/each}}
+				</select><br>
+            Order Date: <input type="text" name="order_date" placeholder="MM-DD-YYYY" value="{{order.order_date}}"><br>
+            Credit Card Number: <input type="text" name="card_num" value="{{order.credit_card_num}}"><br>
+            Card Expiration Date: <input type="text" name="card_exp" placeholder="MM-DD-YYYY" value="{{order.credit_card_exp_date}}"><br>
+        </form>
+        <button id="update" onclick="updateorder({{order.id}})">Update</button>
+        <script defer>selectcustomer({{order.customer_num}});</script>
+        <script defer>selectcar({{order.car_num}});</script>
+</html>

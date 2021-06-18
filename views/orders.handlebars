@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<main>
+		<h1>Orders</h1>
+
+		<div class="input">
+			<form id="add_order" action="/orders" method="post">
+				<label for="customers">Choose a Customer:</label>
+				<select name="customer" id="customers">
+					{{#each customers}}
+					<option value="{{customer_id}}">{{customer_last_name}}</option>
+					{{/each}}
+				</select>
+				<label for="cars">Choose a Car:</label>
+				<select name="car" id="cars">
+					{{#each cars}}
+					<option value="{{car_id}}">{{car_id}}</option>
+					{{/each}}
+				</select>
+				<label for="order_date">Order Date:</label>
+				<input type="text" id="order_date" name="order_date" placeholder="MM-DD-YYYY"><br><br>
+				<label for="card_num">Credit Card Number:</label>
+				<input type="text" id="card_num" name="card_num"><br><br>
+				<label for="car_id_year">Card Expiration Date:</label>
+				<input type="text" id="card_exp" name="card_exp" placeholder="MM-DD-YYYY"><br><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		
+		<table>
+			<tr>
+				<th>Order ID</th>
+				<th>Customer ID</th>
+				<th>Car ID</th>
+				<th>Order Date</th>
+				<th>CC Number</th>
+				<th>CC Expiration</th>
+			</tr>
+			{{#each orders}}
+			<tr>
+				<td>{{order_id}}</td>
+				<td>{{customer_num}}</td>
+				<td>{{car_num}}</td>
+				<td>{{order_date}}</td>
+				<td>{{credit_card_num}}</td>
+				<td>{{credit_card_exp_date}}</td>
+				<td><a href="/orders/{{order_id}}">Update</a></td>
+				<td><button onclick="deleteOrders({{order_id}})">Delete</button></td>
+			</tr>
+			{{/each}}
+	</main>
+
+<html>

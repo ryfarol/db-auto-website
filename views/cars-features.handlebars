@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <main>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#carFeatInput").on("keyup", function() {
+				var value = $(this).val().toLowerCase();
+				$("#carFeatTable tr").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script>
+  <h1>Cars-Features</h1>
+  <div class="input">
+	<form id="add_cars-features" action="/cars-features" method="post">
+		<label for="cars">Choose a Car:</label>
+				<select name="car" id="cars">
+					{{#each cars}}
+					<option value="{{car_id}}">{{car_id}} {{car_manufacturer}} {{car_model}}</option>
+					{{/each}}
+				</select>
+		<label for="customers">Choose a Feature:</label>
+				<select name="feature" id="features">
+					{{#each features}}
+					<option value="{{feat_id}}">{{feat_name}}</option>
+					{{/each}}
+				</select>
+		<label for="feature">Notes:</label>
+		<input type="text" id="notes" name="notes"><br><br>
+		<input type="submit" value="Submit"><br><br>
+	</form>
+	<input type="text" id="carFeatInput" placeholder="Search for cars and features..">
+  </div>
+  <table>
+    <tr>
+	  <th>Car-Feature ID</th>
+	  <th>Car ID</th>
+      <th>Feature ID</th>
+      <th>Notes</th>
+    </tr>
+	<tbody id ="carFeatTable">
+	{{#each cars_features_relations}}
+    <tr>
+	  <td>{{car_feat_id}}</td>
+      <td>{{car_id}}</td>
+      <td>{{feat_id}}</td>
+      <td>{{notes}}</td>
+	  <td><button onclick="deleteCarsFeatures({{car_feat_id}})">Delete</button></td>
+    </tr>
+	{{/each}}
+	</tbody>
+  </main>
+</html>

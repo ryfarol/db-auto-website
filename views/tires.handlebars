@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <main>
+  <h1>Tires</h1>
+  <div class="input">
+	<form id="add_tires" action="/tires" method="post">
+		<label for="tires">Tire Name:</label>
+		<input type="tires" id="tires" name="tire_name"><br><br>
+		<label for="mileage">Mileage:</label>
+		<input type="mileage" id="mileage" name="tire_mileage"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+  </div>
+  <table>
+    <tr>
+      <th>Tire ID</th>
+      <th>Tire Name</th>
+      <th>Mileage</th>
+    </tr>
+	{{#each tires}}
+    <tr>
+      <td>{{tire_id}}</td>
+      <td>{{tire_name}}</td>
+      <td>{{tire_mileage}}</td>
+      <td><button onclick="deleteTires({{tire_id}})">Delete</button></td>
+    </tr>
+	{{/each}}
+  </main>
+</html>
+
+

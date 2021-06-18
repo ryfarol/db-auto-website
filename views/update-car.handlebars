@@ -1,0 +1,20 @@
+<html>
+        <h1>Update Car: {{car.id}}</h1>
+        <form id="update-car">
+            Manufacturer: <input type="text" name="car_manufacturer" value="{{car.car_manufacturer}}"><br>
+            Model: <input type="text" name="car_model" value="{{car.car_model}}"><br>
+            Model Year: <input type="text" name="car_model_year" value="{{car.car_model_year}}"><br>
+            Type: <input type="text" name="car_type" value="{{car.car_type}}"><br>
+            Color: <input type="text" name="car_color" value="{{car.car_color}}"><br>
+            Mileage: <input type="text" name="car_mileage" value="{{car.car_mileage}}"><br>
+            Price: <input type="text" name="car_price" value="{{car.car_price}}"><br>
+            Choose a Tire: 
+            	<select name="tire" id="tire-selector">
+					{{#each tires}}
+					<option value="{{tire_id}}">{{tire_name}}</option>
+					{{/each}}
+				</select><br>
+        </form>
+        <button id="update" onclick="updatecar({{car.id}})">Update</button>
+        <script defer>selecttire({{car.tire_num}});</script>
+</html>
